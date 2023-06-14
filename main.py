@@ -1,8 +1,10 @@
-from google_maps import DistanceMatrix
+import schedule
+import time
+import timesheet_processing
+
 if __name__ == '__main__':
-    origins = 'Wrocław, Czartoryskiego 17'
-    destination = 'Nowa Wieś Wrocławska, Ryszarda Chomicza 13'
-    my_road = DistanceMatrix(origins, destination)
-    print(my_road.body)
-    print(f'Droga do przebycia: {my_road.distance_of_road_in_km()} km.')
-    print(f'Czas drogi przy obecnym natężeniu ruchu: {my_road.duration_of_road_in_minutes()} min.')
+    schedule.every().day.at("20:17").do(timesheet_processing.timesheet, 'MWó')
+    while True:
+        schedule.run_pending()
+        print(schedule.get_jobs())
+        time.sleep(1)
