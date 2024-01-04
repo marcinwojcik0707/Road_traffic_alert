@@ -21,7 +21,7 @@ def timesheet_filtering(employee_name):
     # Searching for what shift the selected employee is working on today
     df=df[(df['Date']) == str(date.today())]
     df=df[employee_name]
-    shift = (df.iloc[0][0])
+    shift = (df.iloc[0])
     return shift
 def schedule_checking_road_traffic(employee_name):
     """Schedule checking road traffic depending on employee shift in work.

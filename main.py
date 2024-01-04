@@ -5,7 +5,7 @@ import timesheet_processing
 if __name__ == '__main__':
     """Starting appication at scheduled time 
     """    
-    schedule.every().day.at("19:38").do(timesheet_processing.schedule_checking_road_traffic, 'MWó')
+    schedule.every().day.at("05:00").do(timesheet_processing.schedule_checking_road_traffic, 'MWó')
     while True:
         schedule.run_pending()
         # print(schedule.get_jobs()) - uncomment to see actual jobs to do by scheduler
